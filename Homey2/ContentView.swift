@@ -142,11 +142,13 @@ struct DisplayMainView: View {
                 }*/
             TasksListView()
                 .tabItem {
+                    Label("Rooms", systemImage: "list.dash")
+                }
+            TasksListView()
+                .tabItem {
                     Label("Chores", systemImage: "list.dash")
                 }
-            
-            
-            
+
             /*
              RestaurantsListView()
                 .tabItem{
