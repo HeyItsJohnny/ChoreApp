@@ -53,6 +53,8 @@
 		DF27184E283807E700B4B51E /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27184D283807E700B4B51E /* Chore.swift */; };
 		DF271854283809C200B4B51E /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF271853283809C200B4B51E /* RoomViewModel.swift */; };
 		DF271856283809CE00B4B51E /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF271855283809CE00B4B51E /* RoomsViewModel.swift */; };
+		DF271858283813F000B4B51E /* RoomEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF271857283813F000B4B51E /* RoomEditView.swift */; };
+		DF27185A283813FA00B4B51E /* RoomDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF271859283813FA00B4B51E /* RoomDetailsView.swift */; };
 		DF484B2D275584D300546F4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF484B2C275584D300546F4E /* GoogleService-Info.plist */; };
 		DF484B312756F81B00546F4E /* MembersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF484B302756F81B00546F4E /* MembersListView.swift */; };
 		DF484B36277BD63400546F4E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF484B35277BD63400546F4E /* User.swift */; };
@@ -119,6 +121,8 @@
 		DF27184D283807E700B4B51E /* Chore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
 		DF271853283809C200B4B51E /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		DF271855283809CE00B4B51E /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
+		DF271857283813F000B4B51E /* RoomEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomEditView.swift; sourceTree = "<group>"; };
+		DF271859283813FA00B4B51E /* RoomDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailsView.swift; sourceTree = "<group>"; };
 		DF484B2C275584D300546F4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF484B302756F81B00546F4E /* MembersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersListView.swift; sourceTree = "<group>"; };
 		DF484B35277BD63400546F4E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 		DF2535A6274485DE000EF94D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DF271857283813F000B4B51E /* RoomEditView.swift */,
+				DF271859283813FA00B4B51E /* RoomDetailsView.swift */,
 				DFDFAB95279CA70D0073E686 /* MealEditView.swift */,
 				DFDFAB97279CAD6C0073E686 /* MealDetailsView.swift */,
 				DFFE52E527FF637000FE11F8 /* RestaurantEditView.swift */,
@@ -482,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFFE52E027FF612800FE11F8 /* Restaurant.swift in Sources */,
+				DF271858283813F000B4B51E /* RoomEditView.swift in Sources */,
 				DF27184A2838068000B4B51E /* ChoresListView.swift in Sources */,
 				DFFE52E827FF64F300FE11F8 /* RestaurantDetailsView.swift in Sources */,
 				DF27184E283807E700B4B51E /* Chore.swift in Sources */,
@@ -497,6 +504,7 @@
 				DFDFABA027A893970073E686 /* HouseMembersViewModel.swift in Sources */,
 				DF25359F27448558000EF94D /* TaskViewModel.swift in Sources */,
 				DF2535942744742F000EF94D /* Room.swift in Sources */,
+				DF27185A283813FA00B4B51E /* RoomDetailsView.swift in Sources */,
 				DFFE52E427FF62A600FE11F8 /* RestaurantsViewModel.swift in Sources */,
 				DFDFAB98279CAD6C0073E686 /* MealDetailsView.swift in Sources */,
 				DF27184C2838069900B4B51E /* RoomsListView.swift in Sources */,

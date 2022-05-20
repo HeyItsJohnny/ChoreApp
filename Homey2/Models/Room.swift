@@ -21,5 +21,5 @@ struct Room: Codable, Identifiable {
     var Name: String
     var User: String
     var Status: RoomStatus
-    var LastCleaned: Date
+    var LastStatusUpdate: Date
 }
