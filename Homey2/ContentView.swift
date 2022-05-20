@@ -140,29 +140,14 @@ struct DisplayMainView: View {
                 .tabItem {
                     Label("Members", systemImage: "person")
                 }*/
-            TasksListView()
+            RoomsListView()
                 .tabItem {
                     Label("Rooms", systemImage: "list.dash")
                 }
-            TasksListView()
+            ChoresListView()
                 .tabItem {
-                    Label("Chores", systemImage: "list.dash")
+                    Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
-
-            /*
-             RestaurantsListView()
-                .tabItem{
-                    Label("Restaurants", systemImage: "paperplane.fill")
-                }
-            MealsListView()
-                .tabItem{
-                    Label("Meals", systemImage: "cart.fill")
-                }
-            ActivitiesListView()
-                .tabItem{
-                    Label("Activities", systemImage: "globe.americas.fill")
-                }
-             */
             SettingsView()
                 .tabItem{
                     Label("Settings", systemImage: "gear")

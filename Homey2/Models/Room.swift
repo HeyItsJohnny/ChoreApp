@@ -9,7 +9,17 @@ import Foundation
 import SwiftUI
 import FirebaseFirestoreSwift
 
+enum RoomStatus: String, CaseIterable, Codable {
+    case cleaned = "Cleaned"
+    case semidirty = "Semi-Dirty"
+    case dirty = "Dirty"
+    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
+}
+
 struct Room: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
-    var name: String
+    var Name: String
+    var User: String
+    var Status: RoomStatus
+    var LastCleaned: Date
 }
