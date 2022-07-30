@@ -29,6 +29,7 @@ struct RoomsListView: View {
                     .font(.subheadline.weight(.heavy))
                 Text(room.Status.localizedName)
                     .font(.subheadline.weight(.heavy))
+                    .background(backgroundColor(for: room.Status))
                 /*Text("Last Status Update: \(room.LastStatusUpdate.formatted(date: .long, time: .shortened))")
                  .font(.subheadline)*/
             }
@@ -49,7 +50,7 @@ struct RoomsListView: View {
                 List {
                     ForEach (searchResults) { roomitem in
                         itemRowView(room: roomitem)
-                            .background(backgroundColor(for: roomitem.Status))
+                            //.background(backgroundColor(for: roomitem.Status))
                     }
                     .onDelete() { indexSet in
                         viewModel.removeRoomItems(atOffsets: indexSet)
