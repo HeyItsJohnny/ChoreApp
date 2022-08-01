@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = TasksViewModel()
+    @StateObject var viewModel = ChoresViewModel()
     @State var presentAddBookSheet = false
     
     @available(iOS 15.0, *)
-    private func itemRowView(task: Task) -> some View {
-        NavigationLink(destination: TaskDetailsView(task: task)) {
+    private func itemRowView(chore: Chore) -> some View {
+        NavigationLink(destination: ChoreDetailsView(chore: chore)) {
             VStack(alignment: .leading) {
-                Text(task.name)
+                Text(chore.name)
                     .font(.headline)
-                Text("User: " + task.username)
+                Text("User: " + chore.username)
                     .font(.subheadline)
-                Text("Next Due Date: \(task.nextduedate.formatted(date: .long, time: .shortened))")
+                Text("Next Due Date: \(chore.nextduedate.formatted(date: .long, time: .shortened))")
                     .font(.subheadline)
             }
         }
@@ -29,11 +29,11 @@ struct HomeView: View {
         NavigationView {
             if #available(iOS 15.0, *) {
                 List {
-                    ForEach (viewModel.task) { taskitem in
-                        itemRowView(task: taskitem)
+                    ForEach (viewModel.chore) { item in
+                        itemRowView(chore: item)
                         .swipeActions(allowsFullSwipe: false) {
                             Button("Confirm") {
-                                viewModel.confirmTaskItems(taskitem)
+                                viewModel.confirmChoreItems(item)
                             }
                             .tint(.green)
                         }
@@ -41,7 +41,6 @@ struct HomeView: View {
                 }
                 .navigationBarTitle("Up Coming Chores")
                 .onAppear() {
-                    print("TasksListView appears. Subscribing to data updates.")
                     self.viewModel.subscribeByNextDueDate()
                 }
                 .onDisappear() {

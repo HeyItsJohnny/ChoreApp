@@ -78,6 +78,11 @@
 		DFFE52E427FF62A600FE11F8 /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE52E327FF62A600FE11F8 /* RestaurantsViewModel.swift */; };
 		DFFE52E627FF637000FE11F8 /* RestaurantEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE52E527FF637000FE11F8 /* RestaurantEditView.swift */; };
 		DFFE52E827FF64F300FE11F8 /* RestaurantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE52E727FF64F300FE11F8 /* RestaurantDetailsView.swift */; };
+		DFFF00EA289857C700C7B0EC /* ChoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00E9289857C700C7B0EC /* ChoreViewModel.swift */; };
+		DFFF00EC2898589E00C7B0EC /* ChoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00EB2898589E00C7B0EC /* ChoresViewModel.swift */; };
+		DFFF00F028985AA200C7B0EC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00EF28985AA200C7B0EC /* Log.swift */; };
+		DFFF00F228985B7600C7B0EC /* ChoreEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F128985B7600C7B0EC /* ChoreEditView.swift */; };
+		DFFF00F428985B8000C7B0EC /* ChoreDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +151,11 @@
 		DFFE52E327FF62A600FE11F8 /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
 		DFFE52E527FF637000FE11F8 /* RestaurantEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEditView.swift; sourceTree = "<group>"; };
 		DFFE52E727FF64F300FE11F8 /* RestaurantDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsView.swift; sourceTree = "<group>"; };
+		DFFF00E9289857C700C7B0EC /* ChoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreViewModel.swift; sourceTree = "<group>"; };
+		DFFF00EB2898589E00C7B0EC /* ChoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresViewModel.swift; sourceTree = "<group>"; };
+		DFFF00EF28985AA200C7B0EC /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		DFFF00F128985B7600C7B0EC /* ChoreEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreEditView.swift; sourceTree = "<group>"; };
+		DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,13 +234,13 @@
 			children = (
 				DF25352527447153000EF94D /* Homey2App.swift */,
 				DF25352727447153000EF94D /* ContentView.swift */,
+				DF25358627447322000EF94D /* HomeView.swift */,
+				DF2718492838068000B4B51E /* ChoresListView.swift */,
+				DF2535A22744859D000EF94D /* TasksListView.swift */,
 				DF484B3F279B6FCF00546F4E /* MealsListView.swift */,
 				DFFE52DD27FF60F500FE11F8 /* RestaurantsListView.swift */,
-				DF25358627447322000EF94D /* HomeView.swift */,
 				DF484B302756F81B00546F4E /* MembersListView.swift */,
-				DF2535A22744859D000EF94D /* TasksListView.swift */,
 				DF27184B2838069900B4B51E /* RoomsListView.swift */,
-				DF2718492838068000B4B51E /* ChoresListView.swift */,
 				DFDFAB99279CBB140073E686 /* SettingsView.swift */,
 				DF25352927447154000EF94D /* Assets.xcassets */,
 				DF484B2C275584D300546F4E /* GoogleService-Info.plist */,
@@ -275,6 +285,7 @@
 				DF2535932744742F000EF94D /* Room.swift */,
 				DF25358F2744741A000EF94D /* Task.swift */,
 				DFDFABA727DAB89E0073E686 /* TaskLog.swift */,
+				DFFF00EF28985AA200C7B0EC /* Log.swift */,
 				DF484B41279B792C00546F4E /* Meal.swift */,
 				DFFE52DF27FF612800FE11F8 /* Restaurant.swift */,
 				DF484B35277BD63400546F4E /* User.swift */,
@@ -286,17 +297,19 @@
 		DF2535952744830F000EF94D /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				DF484B3B277E63AD00546F4E /* AuthViewModel.swift */,
+				DFFF00E9289857C700C7B0EC /* ChoreViewModel.swift */,
+				DFFF00EB2898589E00C7B0EC /* ChoresViewModel.swift */,
+				DFDFAB9D27A8938B0073E686 /* HouseMemberViewModel.swift */,
+				DFDFAB9F27A893970073E686 /* HouseMembersViewModel.swift */,
 				DF271853283809C200B4B51E /* RoomViewModel.swift */,
 				DF271855283809CE00B4B51E /* RoomsViewModel.swift */,
+				DF25359E27448558000EF94D /* TaskViewModel.swift */,
+				DF2535A027448578000EF94D /* TasksViewModel.swift */,
 				DF484B45279B85C800546F4E /* MealViewModel.swift */,
 				DF484B47279B85D600546F4E /* MealsViewModel.swift */,
 				DFFE52E127FF61BE00FE11F8 /* RestaurantViewModel.swift */,
 				DFFE52E327FF62A600FE11F8 /* RestaurantsViewModel.swift */,
-				DF25359E27448558000EF94D /* TaskViewModel.swift */,
-				DF2535A027448578000EF94D /* TasksViewModel.swift */,
-				DFDFAB9D27A8938B0073E686 /* HouseMemberViewModel.swift */,
-				DFDFAB9F27A893970073E686 /* HouseMembersViewModel.swift */,
-				DF484B3B277E63AD00546F4E /* AuthViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -304,16 +317,18 @@
 		DF2535A6274485DE000EF94D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DFFF00F128985B7600C7B0EC /* ChoreEditView.swift */,
+				DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */,
 				DF271857283813F000B4B51E /* RoomEditView.swift */,
 				DF271859283813FA00B4B51E /* RoomDetailsView.swift */,
+				DFDFABA127A895390073E686 /* HouseMemberEditView.swift */,
+				DFDFABA327A895430073E686 /* HouseMemberDetailsView.swift */,
+				DF2535A72744860C000EF94D /* TaskEditView.swift */,
+				DF2535A927448617000EF94D /* TaskDetailsView.swift */,
 				DFDFAB95279CA70D0073E686 /* MealEditView.swift */,
 				DFDFAB97279CAD6C0073E686 /* MealDetailsView.swift */,
 				DFFE52E527FF637000FE11F8 /* RestaurantEditView.swift */,
 				DFFE52E727FF64F300FE11F8 /* RestaurantDetailsView.swift */,
-				DF2535A72744860C000EF94D /* TaskEditView.swift */,
-				DF2535A927448617000EF94D /* TaskDetailsView.swift */,
-				DFDFABA127A895390073E686 /* HouseMemberEditView.swift */,
-				DFDFABA327A895430073E686 /* HouseMemberDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,14 +510,17 @@
 				DF25358727447323000EF94D /* HomeView.swift in Sources */,
 				DF2535A32744859D000EF94D /* TasksListView.swift in Sources */,
 				DF484B312756F81B00546F4E /* MembersListView.swift in Sources */,
+				DFFF00F028985AA200C7B0EC /* Log.swift in Sources */,
 				DFDFAB96279CA70D0073E686 /* MealEditView.swift in Sources */,
 				DF2535AA27448617000EF94D /* TaskDetailsView.swift in Sources */,
 				DFFE52E227FF61BE00FE11F8 /* RestaurantViewModel.swift in Sources */,
 				DFDFAB9E27A8938B0073E686 /* HouseMemberViewModel.swift in Sources */,
 				DFDFAB9A279CBB140073E686 /* SettingsView.swift in Sources */,
 				DF484B36277BD63400546F4E /* User.swift in Sources */,
+				DFFF00EC2898589E00C7B0EC /* ChoresViewModel.swift in Sources */,
 				DFDFABA027A893970073E686 /* HouseMembersViewModel.swift in Sources */,
 				DF25359F27448558000EF94D /* TaskViewModel.swift in Sources */,
+				DFFF00F228985B7600C7B0EC /* ChoreEditView.swift in Sources */,
 				DF2535942744742F000EF94D /* Room.swift in Sources */,
 				DF27185A283813FA00B4B51E /* RoomDetailsView.swift in Sources */,
 				DFFE52E427FF62A600FE11F8 /* RestaurantsViewModel.swift in Sources */,
@@ -515,9 +533,11 @@
 				DF2535902744741A000EF94D /* Task.swift in Sources */,
 				DFDFABA227A895390073E686 /* HouseMemberEditView.swift in Sources */,
 				DFDFABA427A895430073E686 /* HouseMemberDetailsView.swift in Sources */,
+				DFFF00EA289857C700C7B0EC /* ChoreViewModel.swift in Sources */,
 				DFDFABA827DAB89E0073E686 /* TaskLog.swift in Sources */,
 				DF484B42279B792C00546F4E /* Meal.swift in Sources */,
 				DF484B3C277E63AD00546F4E /* AuthViewModel.swift in Sources */,
+				DFFF00F428985B8000C7B0EC /* ChoreDetailsView.swift in Sources */,
 				DF25352627447153000EF94D /* Homey2App.swift in Sources */,
 				DF484B48279B85D600546F4E /* MealsViewModel.swift in Sources */,
 				DF271856283809CE00B4B51E /* RoomsViewModel.swift in Sources */,

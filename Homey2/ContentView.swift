@@ -144,6 +144,10 @@ struct DisplayMainView: View {
                 .tabItem {
                     Label("Rooms", systemImage: "list.dash")
                 }
+            /*ChoresListView()
+                .tabItem {
+                    Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")
+                }*/
             ChoresListView()
                 .tabItem {
                     Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")
