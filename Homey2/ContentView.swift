@@ -136,18 +136,10 @@ struct DisplayMainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            /*MembersListView()
-                .tabItem {
-                    Label("Members", systemImage: "person")
-                }*/
             RoomsListView()
                 .tabItem {
                     Label("Rooms", systemImage: "list.dash")
                 }
-            /*ChoresListView()
-                .tabItem {
-                    Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")
-                }*/
             ChoresListView()
                 .tabItem {
                     Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")

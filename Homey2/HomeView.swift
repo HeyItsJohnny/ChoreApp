@@ -53,7 +53,7 @@ struct HomeView: View {
                 }
                 //.searchable(text: $searchText)
                 .sheet(isPresented: self.$presentAddBookSheet) {
-                    TaskEditView()
+                    ChoreEditView()
                 }
             } else {
                 Text("You need to upgrade to iOS version 15 or greater.");

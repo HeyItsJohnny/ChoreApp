@@ -48,7 +48,7 @@ struct ChoreEditView: View {
                   TextField("Name", text: $viewModel.chore.name)
               }
               Section(header: Text("Details")) {
-                  Picker("Task Owner", selection: $viewModel.chore.username) {
+                  Picker("Chore Owner", selection: $viewModel.chore.username) {
                       ForEach(membersViewModel.housemember) { housemember in
                           Text(housemember.name)
                               .tag(housemember.name)
@@ -56,7 +56,7 @@ struct ChoreEditView: View {
                   }
                   DatePicker("Next Due Date", selection: $viewModel.chore.nextduedate, displayedComponents: [.date, .hourAndMinute])
                   Picker("Frequency", selection: $viewModel.chore.frequency) {
-                      ForEach(TaskFrequency.allCases, id: \.self) { value in
+                      ForEach(ChoreFrequency.allCases, id: \.self) { value in
                           Text(value.localizedName)
                               .tag(value)
                       }
