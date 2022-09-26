@@ -44,8 +44,15 @@ struct ChoreEditView: View {
     var body: some View {
         NavigationView {
           Form {
-              Section(header: Text("Chore/Responsibility")) {
+              Section(header: Text("Chore")) {
                   TextField("Name", text: $viewModel.chore.name)
+              }
+              Section(header: Text("Points")) {
+                  if #available(iOS 15.0, *) {
+                      TextField("Points", value: $viewModel.chore.totalpoints, format: .number)
+                  } else {
+                      // Fallback on earlier versions
+                  }
               }
               Section(header: Text("Details")) {
                   Picker("Chore Owner", selection: $viewModel.chore.username) {

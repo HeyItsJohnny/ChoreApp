@@ -144,6 +144,10 @@ struct DisplayMainView: View {
                 .tabItem {
                     Label("Chores", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
+            LogsListView()
+                .tabItem{
+                    Label("Logs", systemImage: "pencil.circle.fill")
+                }
             SettingsView()
                 .tabItem{
                     Label("Settings", systemImage: "gear")

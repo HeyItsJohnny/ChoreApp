@@ -26,6 +26,8 @@ struct ChoresListView: View {
                     .font(.headline)
                 Text("User: " + chore.username)
                     .font(.subheadline)
+                Text("Points: \(chore.totalpoints)")
+                    .font(.subheadline)
                 Text("Next Due Date: \(chore.nextduedate.formatted(date: .long, time: .shortened))")
                     .font(.subheadline)
             }
@@ -43,7 +45,7 @@ struct ChoresListView: View {
                         viewModel.removeChoreItems(atOffsets: indexSet)
                     }
                 }
-                .navigationBarTitle("House Chores 2")
+                .navigationBarTitle("Chores List")
                 .navigationBarItems(trailing: addButton)
                 .searchable(text: $searchText)
                 .onAppear() {

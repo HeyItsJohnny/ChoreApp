@@ -27,6 +27,9 @@ struct ChoreDetailsView: View {
             Section(header: Text("User")) {
                 Text(chore.username)
             }
+            Section(header: Text("Points")) {
+                Text("\(chore.totalpoints)")
+            }
             Section(header: Text("Next Due Date")) {
                 if #available(iOS 15.0, *) {
                     Text("\(chore.nextduedate.formatted(date: .long, time: .shortened))")

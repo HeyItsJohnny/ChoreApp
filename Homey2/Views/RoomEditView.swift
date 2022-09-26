@@ -27,7 +27,7 @@ struct RoomEditView: View {
     @StateObject var membersViewModel = HouseMembersViewModel()
     
     var mode: RoomMode = .new
-    var completionHandler: ((Result<MealAction, Error>) -> Void)?
+    var completionHandler: ((Result<RoomAction, Error>) -> Void)?
         
     var cancelButton: some View {
       Button(action: { self.handleCancelTapped() }) {
