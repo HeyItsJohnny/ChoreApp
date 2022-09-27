@@ -12,6 +12,7 @@ struct RoomsListView: View {
     @StateObject var viewModel = RoomsViewModel()
     @State var presentAddBookSheet = false
     @State private var searchText = ""
+    @State private var isPresentingConfirm: Bool = false
     
     private var addButton: some View {
         Button(action: { self.presentAddBookSheet.toggle() }) {

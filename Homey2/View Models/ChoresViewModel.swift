@@ -82,6 +82,9 @@ class ChoresViewModel: ObservableObject {
                 RoomName: "",
                 ChoreId: chore.id!,
                 ChoreName: chore.Name,
+                Approved: false,
+                ApprovedBy: "",
+                ApprovedByID: "",
                 DateCompleted: Date()
             )
             

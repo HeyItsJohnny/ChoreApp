@@ -80,6 +80,9 @@ class RoomsViewModel: ObservableObject {
                 RoomName: room.Name,
                 ChoreId: "",
                 ChoreName: "",
+                Approved: false,
+                ApprovedBy: "",
+                ApprovedByID: "",
                 DateCompleted: Date()
             )
             

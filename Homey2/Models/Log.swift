@@ -21,5 +21,8 @@ struct Log: Codable, Identifiable {
     var RoomName: String
     var ChoreId: String
     var ChoreName: String
+    var Approved: Bool
+    var ApprovedBy: String
+    var ApprovedByID: String
     var DateCompleted: Date
 }

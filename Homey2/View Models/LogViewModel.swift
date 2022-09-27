@@ -18,7 +18,7 @@ class LogViewModel: ObservableObject {
   //Constructors
   
     
-    init(log: Log = Log(LogType: "", Name: "", Description: "", TotalPoints: 0, UserId: "", Username: "", RoomId: "", RoomName: "", ChoreId: "", ChoreName: "", DateCompleted: Date())) {
+    init(log: Log = Log(LogType: "", Name: "", Description: "", TotalPoints: 0, UserId: "", Username: "", RoomId: "", RoomName: "", ChoreId: "", ChoreName: "",Approved: false, ApprovedBy: "", ApprovedByID: "", DateCompleted: Date())) {
         self.log = log
         self.$log
           .dropFirst()

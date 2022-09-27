@@ -11,6 +11,8 @@ struct ChoresListView: View {
     @StateObject var viewModel = ChoresViewModel()
     @State var presentAddBookSheet = false
     @State private var searchText = ""
+    //@State private var isPresentingConfirm: Bool = false
+
     
     private var addButton: some View {
         Button(action: { self.presentAddBookSheet.toggle() }) {
@@ -35,6 +37,7 @@ struct ChoresListView: View {
     }
     
     var body: some View {
+        
         NavigationView {
             if #available(iOS 15.0, *) {
                 List {
@@ -44,6 +47,13 @@ struct ChoresListView: View {
                     .onDelete() { indexSet in
                         viewModel.removeChoreItems(atOffsets: indexSet)
                     }
+                    /*
+                    .confirmationDialog("Are you sure?",
+                     isPresented: $isPresentingConfirm) {
+                     Button("Delete all items?", role: .destructive) {
+                       //store.deleteAll()
+                      }
+                    }*/
                 }
                 .navigationBarTitle("Chores List")
                 .navigationBarItems(trailing: addButton)
