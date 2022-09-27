@@ -45,36 +45,36 @@ struct ChoreEditView: View {
         NavigationView {
           Form {
               Section(header: Text("Chore")) {
-                  TextField("Name", text: $viewModel.chore.name)
+                  TextField("Name", text: $viewModel.chore.Name)
               }
               Section(header: Text("Points")) {
                   if #available(iOS 15.0, *) {
-                      TextField("Points", value: $viewModel.chore.totalpoints, format: .number)
+                      TextField("Points", value: $viewModel.chore.TotalPoints, format: .number)
                   } else {
                       // Fallback on earlier versions
                   }
               }
               Section(header: Text("Details")) {
-                  Picker("Chore Owner", selection: $viewModel.chore.username) {
+                  Picker("Chore Owner", selection: $viewModel.chore.Username) {
                       ForEach(membersViewModel.housemember) { housemember in
-                          Text(housemember.name)
-                              .tag(housemember.name)
+                          Text(housemember.Name)
+                              .tag(housemember.Name)
                       }
                   }
-                  DatePicker("Next Due Date", selection: $viewModel.chore.nextduedate, displayedComponents: [.date, .hourAndMinute])
-                  Picker("Frequency", selection: $viewModel.chore.frequency) {
+                  DatePicker("Next Due Date", selection: $viewModel.chore.NextDueDate, displayedComponents: [.date, .hourAndMinute])
+                  Picker("Frequency", selection: $viewModel.chore.Frequency) {
                       ForEach(ChoreFrequency.allCases, id: \.self) { value in
                           Text(value.localizedName)
                               .tag(value)
                       }
                   }
-                  Toggle("Mondays", isOn: $viewModel.chore.schedulemonday)
-                  Toggle("Tuesdays", isOn: $viewModel.chore.scheduletuesday)
-                  Toggle("Wednesdays", isOn: $viewModel.chore.schedulewednesday)
-                  Toggle("Thursdays", isOn: $viewModel.chore.schedulethursday)
-                  Toggle("Fridays", isOn: $viewModel.chore.schedulefriday)
-                  Toggle("Saturdays", isOn: $viewModel.chore.schedulesaturday)
-                  Toggle("Sundays", isOn: $viewModel.chore.schedulesunday)
+                  Toggle("Mondays", isOn: $viewModel.chore.ScheduleMonday)
+                  Toggle("Tuesdays", isOn: $viewModel.chore.ScheduleTuesday)
+                  Toggle("Wednesdays", isOn: $viewModel.chore.ScheduleWednesday)
+                  Toggle("Thursdays", isOn: $viewModel.chore.ScheduleThursday)
+                  Toggle("Fridays", isOn: $viewModel.chore.ScheduleFriday)
+                  Toggle("Saturdays", isOn: $viewModel.chore.ScheduleSaturday)
+                  Toggle("Sundays", isOn: $viewModel.chore.ScheduleSunday)
               }
             if mode == .edit {
               Section {
@@ -83,7 +83,7 @@ struct ChoreEditView: View {
               }
             }
           }
-          .navigationTitle(mode == .new ? "New Chore" : viewModel.chore.name)
+          .navigationTitle(mode == .new ? "New Chore" : viewModel.chore.Name)
           .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
           .navigationBarItems(
             leading: cancelButton,

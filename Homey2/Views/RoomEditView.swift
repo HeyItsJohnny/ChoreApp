@@ -48,19 +48,28 @@ struct RoomEditView: View {
               Section(header: Text("Name")) {
                   TextField("Name", text: $viewModel.room.Name)
               }
+              Section(header: Text("Points")) {
+                  if #available(iOS 15.0, *) {
+                      TextField("Points", value: $viewModel.room.TotalPoints, format: .number)
+                  } else {
+                      // Fallback on earlier versions
+                  }
+              }
               Section(header: Text("Details")) {
                   Picker("User", selection: $viewModel.room.User) {
                       ForEach(membersViewModel.housemember) { housemember in
-                          Text(housemember.name)
-                              .tag(housemember.name)
+                          Text(housemember.Name)
+                              .tag(housemember.Name)
                       }
                   }
+                  /*
                   Picker("Status", selection: $viewModel.room.Status) {
                       ForEach(RoomStatus.allCases, id: \.self) { value in
                           Text(value.localizedName)
                               .tag(value)
                       }
                   }
+                   */
               }
               /*
               Section(header: Text("Last Status Update")) {

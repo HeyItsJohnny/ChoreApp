@@ -64,7 +64,7 @@
 		DFFF00F228985B7600C7B0EC /* ChoreEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F128985B7600C7B0EC /* ChoreEditView.swift */; };
 		DFFF00F428985B8000C7B0EC /* ChoreDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */; };
 		DFFF00F628E231AD00C7B0EC /* LogsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F528E231AD00C7B0EC /* LogsListView.swift */; };
-		DFFF00F828E2531900C7B0EC /* ChoreFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F728E2531900C7B0EC /* ChoreFunctions.swift */; };
+		DFFF00FA28E2636B00C7B0EC /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +119,7 @@
 		DFFF00F128985B7600C7B0EC /* ChoreEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreEditView.swift; sourceTree = "<group>"; };
 		DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreDetailsView.swift; sourceTree = "<group>"; };
 		DFFF00F528E231AD00C7B0EC /* LogsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsListView.swift; sourceTree = "<group>"; };
-		DFFF00F728E2531900C7B0EC /* ChoreFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreFunctions.swift; sourceTree = "<group>"; };
+		DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +261,7 @@
 				DFDFAB9F27A893970073E686 /* HouseMembersViewModel.swift */,
 				DF271853283809C200B4B51E /* RoomViewModel.swift */,
 				DF271855283809CE00B4B51E /* RoomsViewModel.swift */,
+				DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -281,7 +282,6 @@
 		DF484B32277BD5FA00546F4E /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				DFFF00F728E2531900C7B0EC /* ChoreFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -449,7 +449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF271858283813F000B4B51E /* RoomEditView.swift in Sources */,
-				DFFF00F828E2531900C7B0EC /* ChoreFunctions.swift in Sources */,
 				DF27184A2838068000B4B51E /* ChoresListView.swift in Sources */,
 				DF27184E283807E700B4B51E /* Chore.swift in Sources */,
 				DF25358727447323000EF94D /* HomeView.swift in Sources */,
@@ -464,6 +463,7 @@
 				DF2535942744742F000EF94D /* Room.swift in Sources */,
 				DF27185A283813FA00B4B51E /* RoomDetailsView.swift in Sources */,
 				DF27184C2838069900B4B51E /* RoomsListView.swift in Sources */,
+				DFFF00FA28E2636B00C7B0EC /* LogViewModel.swift in Sources */,
 				DF25352827447153000EF94D /* ContentView.swift in Sources */,
 				DFDFAB9C27A88EA90073E686 /* HouseMember.swift in Sources */,
 				DFDFABA227A895390073E686 /* HouseMemberEditView.swift in Sources */,

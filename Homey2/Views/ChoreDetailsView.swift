@@ -22,55 +22,55 @@ struct ChoreDetailsView: View {
     var body: some View {
         Form {
             Section(header: Text("Task Name")) {
-                Text(chore.name)
+                Text(chore.Name)
             }
             Section(header: Text("User")) {
-                Text(chore.username)
+                Text(chore.Username)
             }
             Section(header: Text("Points")) {
-                Text("\(chore.totalpoints)")
+                Text("\(chore.TotalPoints)")
             }
             Section(header: Text("Next Due Date")) {
                 if #available(iOS 15.0, *) {
-                    Text("\(chore.nextduedate.formatted(date: .long, time: .shortened))")
+                    Text("\(chore.NextDueDate.formatted(date: .long, time: .shortened))")
                 } else {
                     // Fallback on earlier versions
                 }
             }
             Section(header: Text("Frequency")) {
-                Text(chore.frequency.localizedName)
+                Text(chore.Frequency.localizedName)
             }
             Section(header: Text("Schedules")) {
-                if (chore.schedulemonday) {
+                if (chore.ScheduleMonday) {
                     Text("Monday")
                 }
-                if (chore.scheduletuesday) {
+                if (chore.ScheduleTuesday) {
                     Text("Tuesday")
                 }
-                if (chore.schedulewednesday) {
+                if (chore.ScheduleWednesday) {
                     Text("Wednesday")
                 }
-                if (chore.schedulethursday) {
+                if (chore.ScheduleThursday) {
                     Text("Thursday")
                 }
-                if (chore.schedulefriday) {
+                if (chore.ScheduleFriday) {
                     Text("Friday")
                 }
-                if (chore.schedulesaturday) {
+                if (chore.ScheduleSaturday) {
                     Text("Saturday")
                 }
-                if (chore.schedulesunday) {
+                if (chore.ScheduleSunday) {
                     Text("Sunday")
                 }
             }
             
         }
-        .navigationBarTitle(chore.name)
+        .navigationBarTitle(chore.Name)
         .navigationBarItems(trailing: editButton {
           self.presentEditBookSheet.toggle()
         })
         .onAppear() {
-            print("ChoreDetailsView.onAppear() for \(self.chore.name)")
+            print("ChoreDetailsView.onAppear() for \(self.chore.Name)")
         }
         .onDisappear() {
           print("ChoreDetailsView.onDisappear()")
@@ -87,7 +87,7 @@ struct ChoreDetailsView: View {
 
 struct ChoreDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        let chore = Chore(name: "TEST1", description: "", totalpoints: 0, frequency: .daily,room: "", userId: "", username: "", nextduedate: Date(), schedulesunday: false, schedulemonday: false, scheduletuesday: false, schedulewednesday: false, schedulethursday: false, schedulefriday: false, schedulesaturday: false)
+        let chore = Chore(Name: "TEST1", Description: "", TotalPoints: 0, Frequency: .daily,Room: "", UserId: "", Username: "", NextDueDate: Date(), ScheduleSunday: false, ScheduleMonday: false, ScheduleTuesday: false, ScheduleWednesday: false, ScheduleThursday: false, ScheduleFriday: false, ScheduleSaturday: false)
         return
             NavigationView {
                ChoreDetailsView(chore: chore)

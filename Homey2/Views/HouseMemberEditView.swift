@@ -43,7 +43,7 @@ struct HouseMemberEditView: View {
         NavigationView {
           Form {
               Section(header: Text("Name")) {
-                  TextField("Name", text: $viewModel.housemember.name)
+                  TextField("Name", text: $viewModel.housemember.Name)
               }
             if mode == .edit {
               Section {
@@ -52,7 +52,7 @@ struct HouseMemberEditView: View {
               }
             }
           }
-          .navigationTitle(mode == .new ? "New Member" : viewModel.housemember.name)
+          .navigationTitle(mode == .new ? "New Member" : viewModel.housemember.Name)
           .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
           .navigationBarItems(
             leading: cancelButton,

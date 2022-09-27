@@ -17,7 +17,7 @@ class HouseMemberViewModel: ObservableObject {
   
   //Constructors
   
-    init(housemember: HouseMember = HouseMember(name: "")) {
+    init(housemember: HouseMember = HouseMember(Name: "")) {
     self.housemember = housemember
     self.$housemember
       .dropFirst()

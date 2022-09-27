@@ -11,15 +11,15 @@ import FirebaseFirestoreSwift
 
 struct Log: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
-    var logtype: String
-    var name: String
-    var description: String
-    var totalpoints: Int
-    var userId: String
-    var username: String
-    var roomId: String
-    var room: String
-    var choreId: String
-    var choreName: String
-    var datecompleted: Date
+    var LogType: String
+    var Name: String
+    var Description: String
+    var TotalPoints: Int
+    var UserId: String
+    var Username: String
+    var RoomId: String
+    var RoomName: String
+    var ChoreId: String
+    var ChoreName: String
+    var DateCompleted: Date
 }

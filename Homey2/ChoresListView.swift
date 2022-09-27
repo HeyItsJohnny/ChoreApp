@@ -22,13 +22,13 @@ struct ChoresListView: View {
     private func itemRowView(chore: Chore) -> some View {
         NavigationLink(destination: ChoreDetailsView(chore: chore)) {
             VStack(alignment: .leading) {
-                Text(chore.name)
+                Text(chore.Name)
                     .font(.headline)
-                Text("User: " + chore.username)
+                Text("User: " + chore.Username)
                     .font(.subheadline)
-                Text("Points: \(chore.totalpoints)")
+                Text("Points: \(chore.TotalPoints)")
                     .font(.subheadline)
-                Text("Next Due Date: \(chore.nextduedate.formatted(date: .long, time: .shortened))")
+                Text("Next Due Date: \(chore.NextDueDate.formatted(date: .long, time: .shortened))")
                     .font(.subheadline)
             }
         }
@@ -74,7 +74,7 @@ struct ChoresListView: View {
         if searchText.isEmpty {
             return viewModel.chore
         } else {
-            return viewModel.chore.filter { $0.username.lowercased().contains(searchText.lowercased()) }
+            return viewModel.chore.filter { $0.Username.lowercased().contains(searchText.lowercased()) }
         }
     }
 }

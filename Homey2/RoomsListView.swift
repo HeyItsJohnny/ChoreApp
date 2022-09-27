@@ -50,12 +50,23 @@ struct RoomsListView: View {
                 List {
                     ForEach (searchResults) { roomitem in
                         itemRowView(room: roomitem)
-                            //.background(backgroundColor(for: roomitem.Status))
+                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                            Button("Dirty") {
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Dirty");
+                            }
+                            .tint(.red)
+                            Button("Semi-Dirty") {
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Semi-Dirty");
+                            }
+                            .tint(.orange)
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button("Clean") {
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
+                            }
+                            .tint(.green)
+                        }
                     }
-                    .onDelete() { indexSet in
-                        viewModel.removeRoomItems(atOffsets: indexSet)
-                    }
-                    
                 }
                 .navigationBarTitle("Room Statuses")
                 .navigationBarItems(trailing: addButton)

@@ -15,11 +15,11 @@ struct HomeView: View {
     private func itemRowView(chore: Chore) -> some View {
         NavigationLink(destination: ChoreDetailsView(chore: chore)) {
             VStack(alignment: .leading) {
-                Text(chore.name)
+                Text(chore.Name)
                     .font(.headline)
-                Text("User: " + chore.username)
+                Text("User: " + chore.Username)
                     .font(.subheadline)
-                Text("Next Due Date: \(chore.nextduedate.formatted(date: .long, time: .shortened))")
+                Text("Next Due Date: \(chore.NextDueDate.formatted(date: .long, time: .shortened))")
                     .font(.subheadline)
             }
         }

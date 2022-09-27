@@ -22,19 +22,19 @@ enum ChoreFrequency: String, CaseIterable, Codable {
 
 struct Chore: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
-    var name: String
-    var description: String
-    var totalpoints: Int
-    var frequency: ChoreFrequency
-    var room: String
-    var userId: String
-    var username: String
-    var nextduedate: Date
-    var schedulesunday: Bool
-    var schedulemonday: Bool
-    var scheduletuesday: Bool
-    var schedulewednesday: Bool
-    var schedulethursday: Bool
-    var schedulefriday: Bool
-    var schedulesaturday: Bool
+    var Name: String
+    var Description: String
+    var TotalPoints: Int
+    var Frequency: ChoreFrequency
+    var Room: String
+    var UserId: String
+    var Username: String
+    var NextDueDate: Date
+    var ScheduleSunday: Bool
+    var ScheduleMonday: Bool
+    var ScheduleTuesday: Bool
+    var ScheduleWednesday: Bool
+    var ScheduleThursday: Bool
+    var ScheduleFriday: Bool
+    var ScheduleSaturday: Bool
 }

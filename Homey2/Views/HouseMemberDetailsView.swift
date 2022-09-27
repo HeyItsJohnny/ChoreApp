@@ -23,15 +23,15 @@ struct HouseMemberDetailsView: View {
     var body: some View {
         Form {
             Section(header: Text("Name")) {
-                Text(housemember.name)
+                Text(housemember.Name)
             }
         }
-        .navigationBarTitle(housemember.name)
+        .navigationBarTitle(housemember.Name)
         .navigationBarItems(trailing: editButton {
           self.presentEditBookSheet.toggle()
         })
         .onAppear() {
-            print("HouseMembersDetailsView.onAppear() for \(self.housemember.name)")
+            print("HouseMembersDetailsView.onAppear() for \(self.housemember.Name)")
         }
         .onDisappear() {
           print("HouseMemberDetailsView.onDisappear()")
@@ -48,7 +48,7 @@ struct HouseMemberDetailsView: View {
 
 struct HouseMemberDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        let housemember = HouseMember(name: "JOHN DOE")
+        let housemember = HouseMember(Name: "JOHN DOE")
         return
             NavigationView {
                HouseMemberDetailsView(housemember: housemember)

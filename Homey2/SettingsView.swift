@@ -22,7 +22,7 @@ struct SettingsView: View {
     private func itemRowView(housemember: HouseMember) -> some View {
         NavigationLink(destination: HouseMemberDetailsView(housemember: housemember)) {
             VStack(alignment: .leading) {
-                Text(housemember.name)
+                Text(housemember.Name)
                     .font(.headline)
             }
         }

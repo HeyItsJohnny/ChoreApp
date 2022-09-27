@@ -11,5 +11,5 @@ import FirebaseFirestoreSwift
 
 struct HouseMember: Codable, Identifiable, Hashable {
     @DocumentID var id: String? = UUID().uuidString
-    var name: String
+    var Name: String
 }

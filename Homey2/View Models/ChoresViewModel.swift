@@ -43,7 +43,7 @@ class ChoresViewModel: ObservableObject {
     }
     func subscribeByNextDueDate() {
         if listenerRegistration == nil {
-            listenerRegistration = db.collection("chores").order(by: "nextduedate").addSnapshotListener { (querySnapshot, error) in
+            listenerRegistration = db.collection("chores").order(by: "NextDueDate").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return
@@ -72,26 +72,27 @@ class ChoresViewModel: ObservableObject {
     func confirmChoreItems(_ chore: Chore) {
         do {
             let choreLog: Log = Log(
-                logtype: "Chore",
-                mainID: chore.id!,
-                name: chore.name,
-                description: chore.description,
-                totalpoints: chore.totalpoints,
-                room: chore.room,
-                userId: chore.userId,
-                username: chore.username,
-                datecompleted: Date()
+                LogType: "Chore",
+                Name: chore.Name,
+                Description: chore.Description,
+                TotalPoints: chore.TotalPoints,
+                UserId: chore.UserId,
+                Username: chore.Username,
+                RoomId: "",
+                RoomName: "",
+                ChoreId: chore.id!,
+                ChoreName: chore.Name,
+                DateCompleted: Date()
             )
             
             //let _ = try db.collection("chores").document(chore.id!).collection("chorelogs").addDocument(from: choreLog)
-            let _ = try db.collection("chorelogs").addDocument(from: choreLog)
+            let _ = try db.collection("logs").addDocument(from: choreLog)
             choreViewModel.updateChoreDueDate(chore)
         } catch {
             print(error)
         }
         //Create a Task Log for the item
         //Update Next Due Date
-        print("Document ID: " + chore.id! + " Name: " + chore.name);
+        //print("Document ID: " + chore.id! + " Name: " + chore.Name);
     }
-
 }

@@ -17,7 +17,7 @@ class ChoreViewModel: ObservableObject {
   
   //Constructors
   
-    init(chore: Chore = Chore(name: "", description: "", totalpoints: 0, frequency: .daily, room: "", userId: "", username: "", nextduedate: Date(), schedulesunday: false, schedulemonday: false, scheduletuesday: false, schedulewednesday: false, schedulethursday: false, schedulefriday: false, schedulesaturday: false)) {
+    init(chore: Chore = Chore(Name: "", Description: "", TotalPoints: 0, Frequency: .daily, Room: "", UserId: "", Username: "", NextDueDate: Date(), ScheduleSunday: false, ScheduleMonday: false, ScheduleTuesday: false, ScheduleWednesday: false, ScheduleThursday: false, ScheduleFriday: false, ScheduleSaturday: false)) {
     self.chore = chore
     self.$chore
       .dropFirst()
@@ -71,10 +71,10 @@ class ChoreViewModel: ObservableObject {
     }
     
     func updateChoreDueDate(_ chore: Chore) {
-        let dueDate = chore.nextduedate
+        let dueDate = chore.NextDueDate
         var modifiedDate = dueDate
         
-        switch chore.frequency.rawValue {
+        switch chore.Frequency.rawValue {
             case "Daily": modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: dueDate)!
             case "Weekly": modifiedDate = Calendar.current.date(byAdding: .day, value: 7, to: dueDate)!
             case "Every 2 Weeks": modifiedDate = Calendar.current.date(byAdding: .day, value: 14, to: dueDate)!
@@ -86,7 +86,7 @@ class ChoreViewModel: ObservableObject {
         }
         
         db.collection("chores").document(chore.id!).updateData([
-            "nextduedate": modifiedDate
+            "NextDueDate": modifiedDate
         ])
     }
   

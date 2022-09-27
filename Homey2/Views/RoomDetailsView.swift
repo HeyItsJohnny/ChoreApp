@@ -28,6 +28,9 @@ struct RoomDetailsView: View {
             Section(header: Text("Assigned User")) {
                 Text(room.User)
             }
+            Section(header: Text("Points")) {
+                Text("\(room.TotalPoints)")
+            }
             Section(header: Text("Status")) {
                 Text(room.Status.localizedName)
             }
@@ -61,7 +64,7 @@ struct RoomDetailsView: View {
 
 struct RoomDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        let room = Room(Name: "", User: "", Status: .dirty, LastStatusUpdate: Date())
+        let room = Room(Name: "", User: "", UserID: "", Status: .dirty, TotalPoints: 0, LastStatusUpdate: Date())
         return
             NavigationView {
                RoomDetailsView(room: room)

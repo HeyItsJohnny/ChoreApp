@@ -17,7 +17,7 @@ class RoomViewModel: ObservableObject {
   
   //Constructors
   
-    init(room: Room = Room(Name: "", User: "", Status: .dirty, LastStatusUpdate: Date())) {
+    init(room: Room = Room(Name: "", User: "", UserID: "", Status: .dirty, TotalPoints: 0, LastStatusUpdate: Date())) {
     self.room = room
     self.$room
       .dropFirst()

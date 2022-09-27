@@ -10,47 +10,95 @@ import Combine
 import FirebaseFirestore
 
 class RoomsViewModel: ObservableObject {
-  @Published var room = [Room]()
-  
-  private var db = Firestore.firestore()
-  private var listenerRegistration: ListenerRegistration?
-  
-  deinit {
-    unsubscribe()
-  }
-  
-  func unsubscribe() {
-    if listenerRegistration != nil {
-      listenerRegistration?.remove()
-      listenerRegistration = nil
+    @Published var room = [Room]()
+    
+    private var db = Firestore.firestore()
+    private var listenerRegistration: ListenerRegistration?
+    
+    deinit {
+        unsubscribe()
     }
-  }
-  
-  func subscribe() {
-    if listenerRegistration == nil {
-      listenerRegistration = db.collection("rooms").addSnapshotListener { (querySnapshot, error) in
-        guard let documents = querySnapshot?.documents else {
-          print("No documents")
-          return
+    
+    func unsubscribe() {
+        if listenerRegistration != nil {
+            listenerRegistration?.remove()
+            listenerRegistration = nil
         }
-        
-        self.room = documents.compactMap { queryDocumentSnapshot in
-          try? queryDocumentSnapshot.data(as: Room.self)
-        }
-      }
     }
-  }
-  
-  func removeRoomItems(atOffsets indexSet: IndexSet) {
-    let rooms = indexSet.lazy.map { self.room[$0] }
-      rooms.forEach { room in
-      if let documentId = room.id {
-        db.collection("rooms").document(documentId).delete { error in
-          if let error = error {
-            print("Unable to remove document: \(error.localizedDescription)")
-          }
+    
+    func subscribe() {
+        if listenerRegistration == nil {
+            listenerRegistration = db.collection("rooms").addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                self.room = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: Room.self)
+                }
+            }
         }
-      }
     }
-  }
+    
+    func updateRoomStatus(_ room: Room, roomStatus: String) {
+        do {
+            var stat = "";
+            switch roomStatus {
+            case "Clean": stat = "Clean"
+            case "Semi-Dirty": stat = "Semi-Dirty"
+            case "Dirty": stat = "Dirty"
+            default:
+                print("Something got fucked up.");
+            }
+            
+            db.collection("rooms").document(room.id!).updateData([
+                "Status": stat
+            ])
+            createRoomLog(room)
+        } catch {
+            print(error)
+        }
+
+    }
+    
+    func createRoomLog(_ room: Room) {
+        do {
+            var totPoints = 0
+            
+            if room.Status == .cleaned {
+                totPoints = room.TotalPoints
+            }
+            let choreLog: Log = Log(
+                LogType: "Room",
+                Name: "Room: " + room.Name,
+                Description: "Room Status Changed to: " + room.Status.rawValue,
+                TotalPoints: totPoints,
+                UserId: room.UserID,
+                Username: room.User,
+                RoomId: room.id!,
+                RoomName: room.Name,
+                ChoreId: "",
+                ChoreName: "",
+                DateCompleted: Date()
+            )
+            
+            let _ = try db.collection("logs").addDocument(from: choreLog)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func removeRoomItems(atOffsets indexSet: IndexSet) {
+        let rooms = indexSet.lazy.map { self.room[$0] }
+        rooms.forEach { room in
+            if let documentId = room.id {
+                db.collection("rooms").document(documentId).delete { error in
+                    if let error = error {
+                        print("Unable to remove document: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
 }
