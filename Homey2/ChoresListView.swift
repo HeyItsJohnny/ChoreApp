@@ -68,7 +68,7 @@ struct ChoresListView: View {
                     // when the user is on any of the child screens, we keep the subscription active!
                     //
                     // print("BooksListView disappears. Unsubscribing from data updates.")
-                    // self.viewModel.unsubscribe()
+                    //self.viewModel.unsubscribe()
                 }
                 //.searchable(text: $searchText)
                 .sheet(isPresented: self.$presentAddBookSheet) {

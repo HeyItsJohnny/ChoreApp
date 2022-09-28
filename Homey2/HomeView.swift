@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = ChoresViewModel()
     @State var presentAddBookSheet = false
+    @State private var isPresentingConfirm: Bool = false
     
     @available(iOS 15.0, *)
     private func itemRowView(chore: Chore) -> some View {
@@ -31,12 +32,20 @@ struct HomeView: View {
                 List {
                     ForEach (viewModel.chore) { item in
                         itemRowView(chore: item)
-                        .swipeActions(allowsFullSwipe: false) {
-                            Button("Confirm") {
-                                viewModel.confirmChoreItems(item)
+                            .swipeActions(allowsFullSwipe: false) {
+                                Button("Confirm") {
+                                    isPresentingConfirm = true
+                                    //viewModel.confirmChoreItems(item)
+                                }
+                                .tint(.green)
+                            }.confirmationDialog("Are you sure?",
+                                                 isPresented: $isPresentingConfirm) {
+                                Button("Confirm: " + item.Name, role: .cancel) {
+                                    viewModel.confirmChoreItems(item)
+                                }
+                            } message: {
+                                Text("Are you sure?")
                             }
-                            .tint(.green)
-                        }
                     }
                 }
                 .navigationBarTitle("Up Coming Chores")

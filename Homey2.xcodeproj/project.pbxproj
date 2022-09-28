@@ -65,6 +65,8 @@
 		DFFF00F428985B8000C7B0EC /* ChoreDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */; };
 		DFFF00F628E231AD00C7B0EC /* LogsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F528E231AD00C7B0EC /* LogsListView.swift */; };
 		DFFF00FA28E2636B00C7B0EC /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */; };
+		DFFF00FE28E3E90900C7B0EC /* LogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF00FD28E3E90900C7B0EC /* LogsViewModel.swift */; };
+		DFFF010228E3EC2600C7B0EC /* LogDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF010128E3EC2600C7B0EC /* LogDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		DFFF00F328985B8000C7B0EC /* ChoreDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreDetailsView.swift; sourceTree = "<group>"; };
 		DFFF00F528E231AD00C7B0EC /* LogsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsListView.swift; sourceTree = "<group>"; };
 		DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
+		DFFF00FD28E3E90900C7B0EC /* LogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewModel.swift; sourceTree = "<group>"; };
+		DFFF010128E3EC2600C7B0EC /* LogDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,7 @@
 				DF271853283809C200B4B51E /* RoomViewModel.swift */,
 				DF271855283809CE00B4B51E /* RoomsViewModel.swift */,
 				DFFF00F928E2636B00C7B0EC /* LogViewModel.swift */,
+				DFFF00FD28E3E90900C7B0EC /* LogsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				DF271859283813FA00B4B51E /* RoomDetailsView.swift */,
 				DFDFABA127A895390073E686 /* HouseMemberEditView.swift */,
 				DFDFABA327A895430073E686 /* HouseMemberDetailsView.swift */,
+				DFFF010128E3EC2600C7B0EC /* LogDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				DFDFAB9A279CBB140073E686 /* SettingsView.swift in Sources */,
 				DFFF00F628E231AD00C7B0EC /* LogsListView.swift in Sources */,
 				DF484B36277BD63400546F4E /* User.swift in Sources */,
+				DFFF010228E3EC2600C7B0EC /* LogDetailsView.swift in Sources */,
 				DFFF00EC2898589E00C7B0EC /* ChoresViewModel.swift in Sources */,
 				DFDFABA027A893970073E686 /* HouseMembersViewModel.swift in Sources */,
 				DFFF00F228985B7600C7B0EC /* ChoreEditView.swift in Sources */,
@@ -472,6 +479,7 @@
 				DF484B3C277E63AD00546F4E /* AuthViewModel.swift in Sources */,
 				DFFF00F428985B8000C7B0EC /* ChoreDetailsView.swift in Sources */,
 				DF25352627447153000EF94D /* Homey2App.swift in Sources */,
+				DFFF00FE28E3E90900C7B0EC /* LogsViewModel.swift in Sources */,
 				DF271856283809CE00B4B51E /* RoomsViewModel.swift in Sources */,
 				DF271854283809C200B4B51E /* RoomViewModel.swift in Sources */,
 			);

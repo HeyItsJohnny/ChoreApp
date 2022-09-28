@@ -13,6 +13,7 @@ struct RoomsListView: View {
     @State var presentAddBookSheet = false
     @State private var searchText = ""
     @State private var isPresentingConfirm: Bool = false
+    @State var selectedRoomStatus = ""
     
     private var addButton: some View {
         Button(action: { self.presentAddBookSheet.toggle() }) {
@@ -51,21 +52,33 @@ struct RoomsListView: View {
                 List {
                     ForEach (searchResults) { roomitem in
                         itemRowView(room: roomitem)
-                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                             Button("Dirty") {
-                                viewModel.updateRoomStatus(roomitem, roomStatus: "Dirty");
+                                isPresentingConfirm = true
+                                selectedRoomStatus = "Dirty"
+                                //
                             }
                             .tint(.red)
                             Button("Semi-Dirty") {
-                                viewModel.updateRoomStatus(roomitem, roomStatus: "Semi-Dirty");
+                                isPresentingConfirm = true
+                                selectedRoomStatus = "Semi-Dirty"
+                                //viewModel.updateRoomStatus(roomitem, roomStatus: "Semi-Dirty");
                             }
                             .tint(.orange)
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                             Button("Clean") {
-                                viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
+                                isPresentingConfirm = true
+                                selectedRoomStatus = "Clean"
+                                //viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
                             }
                             .tint(.green)
+                        }
+                        .confirmationDialog("Are you sure?",
+                             isPresented: $isPresentingConfirm) {
+                             Button("Change Status to: " + selectedRoomStatus, role: .destructive) {
+                                 viewModel.updateRoomStatus(roomitem, roomStatus: selectedRoomStatus)
+                              }
+                        } message: {
+                            Text("Are you sure you want to change the status?")
                         }
                     }
                 }
@@ -82,7 +95,7 @@ struct RoomsListView: View {
                     // when the user is on any of the child screens, we keep the subscription active!
                     //
                     // print("BooksListView disappears. Unsubscribing from data updates.")
-                    // self.viewModel.unsubscribe()
+                    self.viewModel.unsubscribe()
                 }
                 //.searchable(text: $searchText)
                 .sheet(isPresented: self.$presentAddBookSheet) {
