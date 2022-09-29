@@ -81,7 +81,7 @@ struct RoomEditView: View {
               } */
             if mode == .edit {
               Section {
-                Button("Delete Meal") { self.presentActionSheet.toggle() }
+                Button("Delete Room") { self.presentActionSheet.toggle() }
                   .foregroundColor(.red)
               }
             }

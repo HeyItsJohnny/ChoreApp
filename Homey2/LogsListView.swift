@@ -12,13 +12,7 @@ struct LogsListView: View {
     @State var presentAddBookSheet = false
     @State private var searchText = ""
     //@State private var isPresentingConfirm: Bool = false
-    
-    
-    private var addButton: some View {
-        Button(action: { self.presentAddBookSheet.toggle() }) {
-            Image(systemName: "plus")
-        }
-    }
+     
     
     @available(iOS 15.0, *)
     private func itemRowView(log: Log) -> some View {
@@ -48,7 +42,6 @@ struct LogsListView: View {
                     }
                 }
                 .navigationBarTitle("Logs")
-                .navigationBarItems(trailing: addButton)
                 .searchable(text: $searchText)
                 .onAppear() {
                     self.viewModel.subscribeByLatestDateCompleted()
