@@ -54,24 +54,25 @@ struct RoomsListView: View {
                         itemRowView(room: roomitem)
                         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                             Button("Dirty") {
-                                isPresentingConfirm = true
-                                selectedRoomStatus = "Dirty"
-                                //
+                                //isPresentingConfirm = true
+                                //selectedRoomStatus = "Dirty"
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Dirty");
                             }
                             .tint(.red)
                             Button("Semi-Dirty") {
-                                isPresentingConfirm = true
-                                selectedRoomStatus = "Semi-Dirty"
-                                //viewModel.updateRoomStatus(roomitem, roomStatus: "Semi-Dirty");
+                                //isPresentingConfirm = true
+                                //selectedRoomStatus = "Semi-Dirty"
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Semi-Dirty");
                             }
                             .tint(.orange)
                             Button("Clean") {
-                                isPresentingConfirm = true
-                                selectedRoomStatus = "Clean"
-                                //viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
+                                //isPresentingConfirm = true
+                                //selectedRoomStatus = "Clean"
+                                viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
                             }
                             .tint(.green)
                         }
+                        /*
                         .confirmationDialog("Are you sure?",
                              isPresented: $isPresentingConfirm) {
                              Button("Change Status to: " + selectedRoomStatus, role: .destructive) {
@@ -80,6 +81,7 @@ struct RoomsListView: View {
                         } message: {
                             Text("Are you sure you want to change the status?")
                         }
+                         */
                     }
                 }
                 .navigationBarTitle("Room Statuses")

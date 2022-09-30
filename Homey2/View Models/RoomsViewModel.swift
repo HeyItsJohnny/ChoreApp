@@ -51,18 +51,18 @@ class RoomsViewModel: ObservableObject {
             default:
                 print("Something got fucked up.");
             }
-            
+            print("Room NAME: \(room.Name)" );
             db.collection("rooms").document(room.id!).updateData([
                 "Status": stat
             ])
-            createRoomLog(room)
+            createRoomLog(room, NewStatus: roomStatus)
         } catch {
             print(error)
         }
 
     }
     
-    func createRoomLog(_ room: Room) {
+    func createRoomLog(_ room: Room, NewStatus: String) {
         do {
             var totPoints = 0
             
@@ -72,7 +72,7 @@ class RoomsViewModel: ObservableObject {
             let choreLog: Log = Log(
                 LogType: "Room",
                 Name: "Room: " + room.Name,
-                Description: "Room Status Changed to: " + room.Status.rawValue,
+                Description: "Room Status Changed to: \(NewStatus)",
                 TotalPoints: totPoints,
                 UserId: room.UserID,
                 Username: room.User,

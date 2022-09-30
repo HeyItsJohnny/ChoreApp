@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = ChoresViewModel()
     @State var presentAddBookSheet = false
-    @State private var isPresentingConfirm: Bool = false
     
     @available(iOS 15.0, *)
     private func itemRowView(chore: Chore) -> some View {
@@ -34,17 +33,9 @@ struct HomeView: View {
                         itemRowView(chore: item)
                             .swipeActions(allowsFullSwipe: false) {
                                 Button("Confirm") {
-                                    isPresentingConfirm = true
-                                    //viewModel.confirmChoreItems(item)
-                                }
-                                .tint(.green)
-                            }.confirmationDialog("Are you sure?",
-                                                 isPresented: $isPresentingConfirm) {
-                                Button("Confirm: " + item.Name, role: .cancel) {
                                     viewModel.confirmChoreItems(item)
                                 }
-                            } message: {
-                                Text("Are you sure?")
+                                .tint(.green)
                             }
                     }
                 }
@@ -58,7 +49,7 @@ struct HomeView: View {
                     // when the user is on any of the child screens, we keep the subscription active!
                     //
                     // print("BooksListView disappears. Unsubscribing from data updates.")
-                    // self.viewModel.unsubscribe()
+                    self.viewModel.unsubscribe()
                 }
                 //.searchable(text: $searchText)
                 .sheet(isPresented: self.$presentAddBookSheet) {
