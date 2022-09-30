@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 enum ChoreMode {
-  case new
-  case edit
+    case new
+    case edit
 }
 
 enum ChoreAction {
-  case delete
-  case done
-  case cancel
+    case delete
+    case done
+    case cancel
 }
 
 struct ChoreEditView: View {
@@ -27,85 +28,104 @@ struct ChoreEditView: View {
     
     var mode: ChoreMode = .new
     var completionHandler: ((Result<ChoreAction, Error>) -> Void)?
-        
+    
     var cancelButton: some View {
-      Button(action: { self.handleCancelTapped() }) {
-        Text("Cancel")
-      }
+        Button(action: { self.handleCancelTapped() }) {
+            Text("Cancel")
+        }
     }
     
     var saveButton: some View {
-      Button(action: { self.handleDoneTapped() }) {
-        Text(mode == .new ? "Done" : "Save")
-      }
-      .disabled(!viewModel.modified)
+        Button(action: { self.handleDoneTapped() }) {
+            Text(mode == .new ? "Done" : "Save")
+        }
+        .disabled(!viewModel.modified)
     }
     
     var body: some View {
         NavigationView {
-          Form {
-              Section(header: Text("Chore")) {
-                  TextField("Name", text: $viewModel.chore.Name)
-              }
-              Section(header: Text("Points")) {
-                  if #available(iOS 15.0, *) {
-                      TextField("Points", value: $viewModel.chore.TotalPoints, format: .number)
-                  } else {
-                      // Fallback on earlier versions
-                  }
-              }
-              Section(header: Text("Details")) {
-                  Picker("Chore Owner", selection: $viewModel.chore.Username) {
-                      ForEach(membersViewModel.housemember) { housemember in
-                          Text(housemember.Name)
-                              .tag(housemember.Name)
-                      }
-                  }
-                  DatePicker("Next Due Date", selection: $viewModel.chore.NextDueDate, displayedComponents: [.date, .hourAndMinute])
-                  Picker("Frequency", selection: $viewModel.chore.Frequency) {
-                      ForEach(ChoreFrequency.allCases, id: \.self) { value in
-                          Text(value.localizedName)
-                              .tag(value)
-                      }
-                  }
-                  Toggle("Mondays", isOn: $viewModel.chore.ScheduleMonday)
-                  Toggle("Tuesdays", isOn: $viewModel.chore.ScheduleTuesday)
-                  Toggle("Wednesdays", isOn: $viewModel.chore.ScheduleWednesday)
-                  Toggle("Thursdays", isOn: $viewModel.chore.ScheduleThursday)
-                  Toggle("Fridays", isOn: $viewModel.chore.ScheduleFriday)
-                  Toggle("Saturdays", isOn: $viewModel.chore.ScheduleSaturday)
-                  Toggle("Sundays", isOn: $viewModel.chore.ScheduleSunday)
-              }
-            if mode == .edit {
-              Section {
-                Button("Delete Chore") { self.presentActionSheet.toggle() }
-                  .foregroundColor(.red)
-              }
+            Form {
+                Section(header: Text("Chore")) {
+                    TextField("Name", text: $viewModel.chore.Name)
+                }
+                Section(header: Text("Points")) {
+                    if #available(iOS 15.0, *) {
+                        TextField("Points", value: $viewModel.chore.TotalPoints, format: .number)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }
+                
+                /*
+                 Section(header: Text("Chore Owner")) {
+                 Text("Current Chore Owner: \(selectedMember ?? "No Member Selected")")
+                 Picker(selection: $selectedMemberID, label: Text("User")) {
+                 ForEach(self.housemembersData.datas.sorted(by: { $0.name < $1.name } )) {i in
+                 Text(self.housemembersData.datas.count != 0 ? i.name : "No Schools Available").tag(i.id as String?)
+                 }
+                 }.onChange(of: selectedMemberID, perform: { (value) in
+                 //print("Selected Member ID: \(selectedMemberID ?? "No Member ID Selected")")
+                 viewModel.chore.UserId = value
+                 })
+                 
+                 Text("Selected Member ID: \(selectedMemberID ?? "No Member ID Selected")")
+                 }
+                 */
+                
+                Section(header: Text("Details")) {
+                    
+                    Picker("Chore Owner", selection: $viewModel.chore.Username) {
+                        ForEach(membersViewModel.housemember) { housemember in
+                            Text(housemember.Name)
+                                .tag(housemember.Name)
+                        }
+                    }
+                    
+                    DatePicker("Next Due Date", selection: $viewModel.chore.NextDueDate, displayedComponents: [.date, .hourAndMinute])
+                    Picker("Frequency", selection: $viewModel.chore.Frequency) {
+                        ForEach(ChoreFrequency.allCases, id: \.self) { value in
+                            Text(value.localizedName)
+                                .tag(value)
+                        }
+                    }
+                    Toggle("Mondays", isOn: $viewModel.chore.ScheduleMonday)
+                    Toggle("Tuesdays", isOn: $viewModel.chore.ScheduleTuesday)
+                    Toggle("Wednesdays", isOn: $viewModel.chore.ScheduleWednesday)
+                    Toggle("Thursdays", isOn: $viewModel.chore.ScheduleThursday)
+                    Toggle("Fridays", isOn: $viewModel.chore.ScheduleFriday)
+                    Toggle("Saturdays", isOn: $viewModel.chore.ScheduleSaturday)
+                    Toggle("Sundays", isOn: $viewModel.chore.ScheduleSunday)
+                }
+                if mode == .edit {
+                    Section {
+                        Button("Delete Chore") { self.presentActionSheet.toggle() }
+                            .foregroundColor(.red)
+                    }
+                }
             }
-          }
-          .navigationTitle(mode == .new ? "New Chore" : viewModel.chore.Name)
-          .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
-          .navigationBarItems(
-            leading: cancelButton,
-            trailing: saveButton
-          )
-          .onAppear() {
-              //Subscribing to Members View Model
-              self.membersViewModel.subscribe()
-          }
-          .actionSheet(isPresented: $presentActionSheet) {
-            ActionSheet(title: Text("Are you sure?"),
-                        buttons: [
-                          .destructive(Text("Delete Chore"),
-                                       action: { self.handleDeleteTapped() }),
-                          .cancel()
-                        ])
-          }
+            .navigationTitle(mode == .new ? "New Chore" : viewModel.chore.Name)
+            .navigationBarTitleDisplayMode(mode == .new ? .inline : .large)
+            .navigationBarItems(
+                leading: cancelButton,
+                trailing: saveButton
+            )
+            .onAppear() {
+                //Subscribing to Members View Model
+                self.membersViewModel.subscribe()
+            }
+            .actionSheet(isPresented: $presentActionSheet) {
+                ActionSheet(title: Text("Are you sure?"),
+                            buttons: [
+                                .destructive(Text("Delete Chore"),
+                                             action: { self.handleDeleteTapped() }),
+                                .cancel()
+                            ])
+            }
         }
     }
     
     func handleCancelTapped() {
-      self.dismiss()
+        self.dismiss()
     }
     
     func handleDoneTapped() {
@@ -120,8 +140,9 @@ struct ChoreEditView: View {
     }
     
     func dismiss() {
-      self.presentationMode.wrappedValue.dismiss()
+        self.presentationMode.wrappedValue.dismiss()
     }
+    
 }
 
 struct ChoreEditView_Previews: PreviewProvider {

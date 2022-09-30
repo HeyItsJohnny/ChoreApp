@@ -53,24 +53,5 @@ class HouseMembersViewModel: ObservableObject {
             }
         }
     }
-    /*
-    func getHousememberIDFromName(username: String, userID: String) {
-        let housemembersRef = db.collection("housemembers")
-        let query = housemembersRef.whereField("Name", isEqualTo: username)
-                
-        query.getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    //return docID = document.documentID
-                    var userID = userID
-                    userID = document.documentID
-                    //print("Doc ID: " + docID);
-                }
-            }
-        }
-     
-    }*/
     
 }

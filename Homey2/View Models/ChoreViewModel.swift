@@ -97,4 +97,26 @@ class ChoreViewModel: ObservableObject {
     func handleDeleteTapped() {
         self.removeChore()
       }
+    
+    func fetchMembername(documentID: String) {
+        let db = Firestore.firestore()
+
+        let docRef = db.collection("housemembers").document(documentID)
+
+        docRef.getDocument { (document, error) in
+            guard error == nil else {
+                print("error", error ?? "")
+                return
+            }
+
+            if let document = document, document.exists {
+                let data = document.data()
+                if let data = data {
+                    print("data", data)
+                    //selectedMember = data["Name"] as? String ?? ""
+                }
+            }
+
+        }
+    }
 }
