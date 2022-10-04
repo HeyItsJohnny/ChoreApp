@@ -10,9 +10,10 @@ import SwiftUI
 struct LogsListView: View {
     @StateObject var viewModel = LogsViewModel()
     @State var presentAddBookSheet = false
-    @State private var searchText = ""
+    //@State private var searchText = ""
+    @State private var selectedLogCategory = 0
     //@State private var isPresentingConfirm: Bool = false
-     
+    
     
     @available(iOS 15.0, *)
     private func itemRowView(log: Log) -> some View {
@@ -32,9 +33,18 @@ struct LogsListView: View {
     
     var body: some View {
         NavigationView {
+            
+            
             if #available(iOS 15.0, *) {
                 List {
-                    ForEach (searchResults) { item in
+                    Picker(selection: $selectedLogCategory , label: Text("Status")) {
+                        Text("Chores").tag(0)
+                        Text("Rooms").tag(1)
+                        Text("Users").tag(2)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+
+                    ForEach (filterResults) { item in
                         itemRowView(log: item)
                     }
                     .onDelete() { indexSet in
@@ -42,14 +52,12 @@ struct LogsListView: View {
                     }
                 }
                 .navigationBarTitle("Logs")
-                .searchable(text: $searchText)
                 .onAppear() {
                     self.viewModel.subscribeByLatestDateCompleted()
                 }
                 .onDisappear() {
                     self.viewModel.unsubscribe()
                 }
-                //.searchable(text: $searchText)
                 .sheet(isPresented: self.$presentAddBookSheet) {
                     ChoreEditView()
                 }
@@ -59,11 +67,15 @@ struct LogsListView: View {
             }
         }
     }
-    var searchResults: [Log] {
-        if searchText.isEmpty {
-            return viewModel.log
+    var filterResults: [Log] {
+        if selectedLogCategory == 0 {
+            return viewModel.log.filter { $0.LogType.lowercased().contains("chore") }
+        } else if selectedLogCategory == 1 {
+            return viewModel.log.filter { $0.LogType.lowercased().contains("room") }
+        } else if selectedLogCategory == 2 {
+            return viewModel.log.filter { $0.LogType.lowercased().contains("user") }
         } else {
-            return viewModel.log.filter { $0.Username.lowercased().contains(searchText.lowercased()) }
+            return viewModel.log
         }
     }
 }

@@ -66,9 +66,9 @@ struct RoomsListView: View {
                             }
                             .tint(.orange)
                             Button("Clean") {
-                                //isPresentingConfirm = true
+                                isPresentingConfirm = true
                                 //selectedRoomStatus = "Clean"
-                                viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
+                                //viewModel.updateRoomStatus(roomitem, roomStatus: "Clean");
                             }
                             .tint(.green)
                         }

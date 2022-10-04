@@ -62,14 +62,13 @@ struct RoomEditView: View {
                               .tag(housemember.Name)
                       }
                   }
-                  /*
                   Picker("Status", selection: $viewModel.room.Status) {
                       ForEach(RoomStatus.allCases, id: \.self) { value in
                           Text(value.localizedName)
                               .tag(value)
                       }
                   }
-                   */
+                  .pickerStyle(SegmentedPickerStyle())
               }
               /*
               Section(header: Text("Last Status Update")) {
